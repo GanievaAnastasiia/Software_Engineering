@@ -1,5 +1,5 @@
 # Software_Engineering
-## [Тема 1. Работа с репозиториями](https://github.com/GanievaAnastasiia/Software_Engineering/blob/Тема_1/Тема_1.md)
+## [Тема 1. Работа с репозиториями]
 1.1. Установка
 
 1.2. Настройка
