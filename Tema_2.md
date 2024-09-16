@@ -1,0 +1,126 @@
+# Тема 1. Работа с репозиториями.
+Отчет по Теме #1 выполнил(а):
+- Ганиева Анастасия Ильсуровна
+- ПИЭ-22-1
+
+| Задание | Лаб_раб |
+| ------ | ------ |
+| Задание 1 | + |
+| Задание 2 | + |
+| Задание 3 | + |
+| Задание 4 | + |
+| Задание 5 | + |
+| Задание 6 | + |
+| Задание 7 | + |
+| Задание 8 | + |
+| Задание 9 | + |
+| Задание 10 | + |
+| Задание 11 | + |
+| Задание 12 | + |
+| Задание 13 | + |
+| Задание 14 | + |
+| Задание 15 | + |
+
+знак "+" - задание выполнено; знак "-" - задание не выполнено;
+
+Работу проверили:
+- к.э.н., доцент Панов М.А.
+
+## 2.1. Установка
+![установка Git](https://github.com/GanievaAnastasiia/Software_Engineering/blob/Tema_1/Images/img_1.png)
+
+## Выводы
+Программа была успешно установлена на компьютер. При помощи команды git --version проверена версия.
+
+## 2.2. Настройка
+![настройка](https://github.com/GanievaAnastasiia/Software_Engineering/blob/Tema_1/Images/img_2.png)
+
+## Выводы
+Произведена настройка, добавлено имя пользователя, адрес электронной почты.
+
+## 2.3. Создание нового репозитория
+![создание нового репозитория](https://github.com/GanievaAnastasiia/Software_Engineering/blob/Tema_1/Images/img_3.png)
+
+## Выводы
+Создан новый репозиторий.
+
+## 2.4. Подготовка файлов
+![подготовка файла](https://github.com/GanievaAnastasiia/Software_Engineering/blob/Tema_1/Images/img_4.png)
+
+## Выводы
+При помощи команды add добавлен файл. При помощи команды status проверен статус.
+
+## 2.5. Фиксация изменений
+![фиксация изменений](https://github.com/GanievaAnastasiia/Software_Engineering/blob/Tema_1/Images/img_5.png)
+
+## Выводы
+При помощи команды commit -m научились добавлять коммментарии.
+
+## 2.6. Подключение к удаленному репозиторию
+![image](https://github.com/GanievaAnastasiia/Software_Engineering/blob/Tema_1/Images/img_6.png)
+![image](https://github.com/GanievaAnastasiia/Software_Engineering/blob/Tema_1/Images/img_7.png)
+
+## Выводы
+Подключаемся к удаленному репозиторию и загружаем изменения с помощью команды push.
+
+## 2.7. Ветвление
+![image](https://github.com/GanievaAnastasiia/Software_Engineering/blob/Tema_1/Images/img_8.png)
+![image](https://github.com/GanievaAnastasiia/Software_Engineering/blob/Tema_1/Images/img_9.png)
+
+## Выводы
+Изучен процесс создания новой ветки, переключения на ветку и рассмотрено слияние веток.
+
+## 2.8. Особенности применения «Фетч»
+![image](https://github.com/GanievaAnastasiia/Software_Engineering/blob/Tema_1/Images/img_10.png)
+
+## Выводы
+Применение фетча на практике.
+
+## 2.9. Удаление файлов, веток, локальных и удалённых репозиториев
+![image](https://github.com/GanievaAnastasiia/Software_Engineering/blob/Tema_1/Images/img_11.png)
+![image](https://github.com/GanievaAnastasiia/Software_Engineering/blob/Tema_1/Images/img_12.png)
+
+## Выводы
+Изучение процесса удаления файлов командой git rm, веток командой git branch -b и локальных репозиториев git push origin -delete.
+
+## 2.10. Отслеживание изменений в коммитах
+![image](https://github.com/GanievaAnastasiia/Software_Engineering/blob/Tema_1/Images/img_13.png)
+
+## Выводы
+Просмотр истории всех коммитов командой git log. 
+
+## 2.11. Возвращение файла к предыдущему (определенному) состоянию
+![image](https://github.com/GanievaAnastasiia/Software_Engineering/blob/Tema_1/Images/img_14.png)
+
+## Выводы
+Создание файла, его изменение и возврат к предыдущему состоянию.  
+
+## 2.12. Возвращение к предыдущему коммиту
+![image](https://github.com/GanievaAnastasiia/Software_Engineering/blob/Tema_1/Images/img_15.png)
+
+## Выводы
+Выполнен сброс до предыдушего коммита. 
+
+## 2.13. Исправление коммита
+![image](https://github.com/GanievaAnastasiia/Software_Engineering/blob/Tema_1/Images/img_16.png)
+![image](https://github.com/GanievaAnastasiia/Software_Engineering/blob/Tema_1/Images/img_17.png)
+![image](https://github.com/GanievaAnastasiia/Software_Engineering/blob/Tema_1/Images/img_18.png)
+
+## Выводы
+Выполнено изменение более раннего коммита по средствам команды git rebase -i HEAD~4.
+
+## 2.14. Разрешение конфликтов при слиянии
+![image](https://github.com/GanievaAnastasiia/Software_Engineering/blob/Tema_1/Images/img_19.png)
+
+## Выводы
+Создание двух веток и решение конфликта слияния.
+
+## 2.15. Настройка .gitignore
+![image](https://github.com/GanievaAnastasiia/Software_Engineering/blob/Tema_1/Images/img_20.png)
+
+## Выводы
+Изучение и создание файла gitignore.
+
+## Общие выводы по теме
+В ходе лабораторарной работы, успешно установила и начала работу с git. Применила на практике основные команды, которые помогут мне в дальнейшей работе. 
+
