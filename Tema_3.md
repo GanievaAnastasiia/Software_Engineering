@@ -34,6 +34,6 @@ else:
 ```
 ### Результат.
 
-![Меню]()
+![Меню](https://github.com/GanievaAnastasiia/Software_Engineering/blob/Тема_3/images3/1.png)
 
 ## Выводы
