@@ -34,7 +34,7 @@ if __name__ == '__main__':
 
 ### Результат.
 
-![Меню]()
+![Меню](https://github.com/GanievaAnastasiia/Software_Engineering/blob/Тема_4/images4/4.png)
 
 ## Выводы
 
