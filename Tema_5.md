@@ -35,7 +35,7 @@ print("Элементы из первого множества, которых �
 
 ```
 ### Результат.
-![image](https://github.com/user-attachments/assets/cb4ca64e-cc7f-4190-a31a-7500f903a6db)
+![image](https://github.com/GanievaAnastasiia/Software_Engineering/blob/Тема_5/images5/1.png)
 
 ## Выводы
 
