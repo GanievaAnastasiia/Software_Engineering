@@ -293,3 +293,246 @@ with open('file_csv.csv', 'w', newline='') as csvfile:
    - В конце каждой итерации программа «засыпает» на 0.01 секунды.
 4. В результате создается csv файл. 
 
+## Самостоятельная работа №1
+
+Найдите в интернете любую статью (объем статьи не менее 200 слов), скопируйте ее содержимое в файл и напишите программу, которая считает количество слов в текстовом файле и определит самое часто встречающееся слово. Результатом выполнения задачи будет: скриншот файла со статьей, листинг кода, и вывод в консоль, в котором будет указана вся необходимая информация.
+
+```python
+from collections import Counter
+import re
+def count_words_and_most_common(filename):
+    with open(filename, 'r', encoding='utf-8') as file:
+        text = file.read()
+    words = re.findall(r'\b\w+\b', text.lower())
+    total_words = len(words)
+    word_counts = Counter(words)
+    most_common_word, most_common_count = word_counts.most_common(1)[0]
+    print(f'Общее количество слов: {total_words}')
+    print(f'Самое частое слово: "{most_common_word}" (встречается {most_common_count} раз)')
+count_words_and_most_common('roman.txt')
+```
+### Результат.
+
+![image](https://github.com/GanievaAnastasiia/Software_Engineering/blob/Тема_7/images7/11.png)
+
+Статья:
+
+![image](https://github.com/GanievaAnastasiia/Software_Engineering/blob/Тема_7/images7/111.png)
+
+## Выводы
+
+1. Импорт библиотек:
+- Импортируем модуль Counter из коллекций, который позволяет легко подсчитывать количество слов, и модуль re для работы с регулярными выражениями.
+2. Функция `count_words_and_most_common` принимает имя файла как параметр.
+3. Файл открывается для чтения, и его содержимое загружается в переменную text.
+4. Извлечение слов:
+- `words = re.findall(r'\b\w+\b', text.lower())` находится все слова в тексте, переводя их в нижний регистр. Слова определяются последовательностями букв, и символы, не являющиеся буквами, игнорируются.
+5. Подсчет общего количества слов:
+- `total_words = len(words)` переменная `total_words` будет хранить общее количество найденных слов.
+6. Подсчет частоты каждого слова:
+- `word_counts = Counter(words)` создаётся словарь с подсчетом каждой уникального слова.
+7. Поиск самого частого слова:
+- `most_common_word, most_common_count = word_counts.most_common(1)[0]`
+- `most_common(1)` возвращает список с одним элементом в виде кортежа, и мы извлекаем его в отдельные переменные.
+8. Вывод результатов
+
+## Самостоятельная работа №2
+
+У вас появилась потребность в ведении книги расходов, посмотрев все существующие варианты вы пришли к выводу что вас ничего не устраивает и нужно все делать самому. Напишите программу для учета расходов. Программа должна позволять вводить информацию о расходах, сохранять ее в файл и выводить существующие данные в консоль. Ввод информации происходит через консоль. Результатом выполнения задачи будет: скриншот файла с учетом расходов, листинг кода, и вывод в консоль, с демонстрацией работоспособности программы.
+
+```python
+def add_expense():
+    date = input("Введите дату расхода (в формате ДД-ММ-ГГГГ): ")
+    description = input("Введите категорию расхода: ")
+    amount = input("Введите сумму расходов: ")
+    with open('расходы.txt', 'a', encoding='utf-8') as file:
+        file.write(f'{date}: {description}: {amount}\n')
+
+def show_expenses():
+    print("Записи расходов:")
+    try:
+        with open('расходы.txt', 'r', encoding='utf-8') as file:
+            for line in file:
+                date, description, amount = line.strip().split(': ')
+                print(f"Дата: {date}")
+                print(f"Категория: {description}")
+                print(f"Сумма: {amount}\n")
+    except FileNotFoundError:
+        print("Нет записей расходов.")
+
+while True:
+    action = input("Введите '1' для добавления расхода или '2' для вывода всех расходов: ").strip()
+    if action == '1':
+        add_expense()
+    elif action == '2':
+        show_expenses()
+    else:
+        print("Вы ошиблись при вводе данных,пробуйте еще раз")
+```
+### Результат.
+
+![image](https://github.com/GanievaAnastasiia/Software_Engineering/blob/Тема_7/images7/122.png)
+
+Файл, в который записываются расходы:
+
+![image](https://github.com/GanievaAnastasiia/Software_Engineering/blob/Тема_7/images7/12.png)
+![image](https://github.com/GanievaAnastasiia/Software_Engineering/blob/Тема_7/images7/121.png)
+## Выводы
+
+1. Программа позволяет вести дневник рассходов. Пользователь вводит данные самостоятельно: дата расхода, категория, стоиимость. Также есть возможность просматривать все записи.
+2. Данные сохраняются в текстовом файле расходы.txt.
+3. Программа работает в цикле, позволяя пользователю выполнять действия до тех пор, пока он не решит выйти.
+
+## Самостоятельная работа №3
+
+Имеется файл input.txt с текстом на латинице. Напишите программу, которая выводит следующую статистику по тексту: количество букв латинского алфавита; число слов; число строк.
+•	Текст в файле: Beautiful is better than ugly. Explicit is better than implicit. Simple is better than complex.
+Complex is better than complicated.
+•	Ожидаемый результат: Input file contains:
+108 letters
+20 words
+4 lines
+
+```python
+def count_text_statistics(file_path):
+    total_letters = 0
+    total_words = 0
+    total_lines = 0
+    with open(file_path, 'r', encoding='utf-8') as file:
+        for line in file:
+            total_lines += 1 
+            words = line.split()
+            total_words += len(words)
+            for char in line:
+                if char.isalpha() and char.isascii():
+                    total_letters += 1
+    return total_letters, total_words, total_lines
+file_path = 'input.txt'
+letters, words, lines = count_text_statistics(file_path)
+
+print(f"Input file contains:\n{letters} letters\n{words} words\n{lines} lines")
+
+```
+### Результат.
+
+![image](https://github.com/GanievaAnastasiia/Software_Engineering/blob/Тема_7/images7/13.png)
+
+## Выводы
+
+1. Функция `count_text_statistics(file_path):`
+- Принимает путь к файлу в качестве аргумента.
+- Инициализирует счетчики для букв, слов и строк `(total_letters, total_words, total_lines)`.
+- Открывает файл для чтения с кодировкой UTF-8.
+- Для каждой строки файла разделяет строку на слова и увеличивает счетчик слов на количество найденных слов. Для каждого символа в строке проверяет, является ли он буквой (латинской) и увеличивает счетчик букв, если условие выполняется.
+2. Функция:
+- Путь к файлу задается переменной `file_path`.
+- Вызывается функция `count_text_statistics`, и результат сохраняется в переменные letters, words и lines.
+3. Вывод результата
+
+## Самостоятельная работа №4
+
+Напишите программу, которая получает на вход предложение, выводит его в терминал, заменяя все запрещенные слова звездочками * (количество звездочек равно количеству букв в слове). Запрещенные слова, разделенные символом пробела, хранятся в текстовом файле input.txt. Все слова в этом файле записаны в нижнем регистре. Программа должна заменить запрещенные слова, где бы они ни встречались, даже в середине другого слова. Замена производится независимо от регистра: если файл input.txt содержит запрещенное слово exam, то слова exam, Exam, ExaM, EXAM и exAm должны быть заменены на ****.
+•  Запрещенные слова:
+hello email python the exam wor is
+•  Предложение для проверки:
+Hello, world! Python IS the programming language of thE future. My EMAIL is gai2004@list.ru
+PYTHON is awesome!!!!
+•  Ожидаемый результат:
+*****, ***ld! ******  *** programming language of *** future. My
+*****  gai2004@list.ru
+****** ** awesome!!!!
+
+```python
+def load_forbidden_words(file_path):
+    with open(file_path, 'r', encoding='utf-8') as file:
+        forbidden_words = file.read().strip().split()
+    return forbidden_words
+def replace_forbidden_words(sentence, forbidden_words):
+    for word in forbidden_words:
+        sentence = sentence.replace(word, '*' * len(word))                  
+        sentence = sentence.replace(word.capitalize(), '*' * len(word))    
+        sentence = sentence.replace(word.upper(), '*' * len(word))          
+        sentence = sentence.replace(word[0].upper() + word[1:], '*' * len(word) + word[1:]) 
+    return sentence
+file_path = 'input.txt'
+forbidden_words = load_forbidden_words(file_path)
+input_sentence = "Hello, world! Python IS the programming language of thE future. My EMAIL is gai2004@list.ru\nPYTHON is awesome!!!!"
+output_sentence = replace_forbidden_words(input_sentence, forbidden_words)
+print(output_sentence)
+```
+### Результат.
+
+![image](https://github.com/GanievaAnastasiia/Software_Engineering/blob/Тема_7/images7/14.png)
+
+## Выводы
+
+1. Функция добавления запрещенных слов:
+- `load_forbidden_words(file_path)`: открывает файл input.txt для чтения, читает содержимое файла, удаляет лишние пробелы и разделяет строку на слова, формируя список запрещенных слов.
+2. Функция замены запрещенных слов:
+- `replace_forbidden_words(sentence, forbidden_words):` принимает строку sentence и список forbidden_words.
+- Для каждого запрещенного слова выполняется замены:
+    - Заменяет слово в низком регистре.
+    - Заменяет слово с первой заглавной буквой.
+    - Заменяет слово в полном верхнем регистре.
+    - Заменяет слово, если первая буква заглавная, а остальные - маленькие.
+    - Замена производится на строку, состоящую из символов *, где количество звёздочек соответствует длине слова.
+3. Обработка входных данных:
+- Определяется путь к файлу `input.txt`, из которого загружаются запрещенные слова.
+- Определяется тестовая строка `input_sentence`, в которой будут заменены запрещенные слова.
+4. Вывод результата.
+
+## Самостоятельная работа №5
+
+Самостоятельно придумайте и решите задачу, которая будет взаимодействовать с текстовым файлом.
+
+Напишем программу, которая загружает текст из файла, подсчитывает количество слов в тексте и выводит количество уникальных слов, а также частоту появления каждого слова. Результаты сохраняются в новый файл.
+
+```python
+import re
+from collections import Counter
+def load_text(file_path):
+    """Загрузка текста из файла"""
+    with open(file_path, 'r', encoding='utf-8') as file:
+        return file.read()
+def count_words(text):
+    words = re.findall(r'\b\w+\b', text.lower())
+    return Counter(words)
+def save_results(word_counts, output_file):
+    with open(output_file, 'w', encoding='utf-8') as file:
+        file.write(f"Количество уникальных слов: {len(word_counts)}\n\n")
+        file.write("Частота слов:\n")
+        for word, count in word_counts.items():
+            file.write(f"{word}: {count}\n")
+input_file = 'input.txt'
+output_file = 'output.txt'
+text = load_text(input_file)
+word_counts = count_words(text)
+save_results(word_counts, output_file)
+print(f"Результаты сохранены в '{output_file}'")
+```
+### Результат.
+
+![image](https://github.com/GanievaAnastasiia/Software_Engineering/blob/Тема_7/images7/15.png)
+
+Текст для работы
+
+![image](https://github.com/GanievaAnastasiia/Software_Engineering/blob/Тема_7/images7/155.png)
+
+## Выводы
+
+1. Программа загружает текст из файла `input.txt.`
+2. Подсчитывает все слова, игнорируя регистр и пунктуацию.
+3. Сохраняет результаты в файл `output.txt`, где будет указано количество уникальных слов и частота появления каждого слова.
+
+## Общие выводы по теме
+
+1. Работа с файлами 
+- При работе с текстовыми файлами необходимо учитывать кодировки (например UTF-8), чтобы избежать проблем с отображением символов
+- Использование конструкции with позволяет автоматически закрывать файл после завершения работы с ним, что является хорошей практикой
+2. Основные операции
+- Основные операции с файлами включают открытие (с помощью функции `open())`, чтение `(read()`, `readline()`, `readlines())`, запись (`write()`, `writelines())` и закрытие (`close()`).
+- Поддержка различных режимов открытия файлов, таких как `r` (чтение), `w` (запись), `a` (добавление), `rb` (чтение в двоичном режиме), позволяет гибко управлять доступом к файлам.
+3. Чтение
+- Функции чтения позволяют загружать данные как целиком, построчно или в виде списка строк.
+- Запись данных более чем одной строки осуществляется с помощью метода `writelines()`, что позволяет эффективно сохранять данные в файл.
+4. В ходе данной лабораторной работы был успешно применены теоретические значния работы с файлами на практине. 
