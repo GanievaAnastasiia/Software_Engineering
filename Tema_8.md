@@ -1,4 +1,4 @@
-# ТЕМА 8. Введение в ООП
+# Тема 8. Введение в ООП
 Отчет по Теме #8 выполнил(а):
 - Ганиева Анастасия Ильсуровна
 - ПИЭ-22-1
@@ -36,7 +36,7 @@ my_car = Car("Toyota", "Corolla")
 ```
 ### Результат.
 
-![image]()
+![image](https://github.com/GanievaAnastasiia/Software_Engineering/blob/Тема_8/images8/1.png)
 
 ## Выводы
 
