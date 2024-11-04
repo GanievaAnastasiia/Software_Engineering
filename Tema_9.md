@@ -37,7 +37,7 @@ person2.surname = 'Петров'
 ```
 ### Результат.
 
-![image]()
+![image](https://github.com/GanievaAnastasiia/Software_Engineering/blob/Тема_9/images9/1.png)
 
 ## Выводы
 
