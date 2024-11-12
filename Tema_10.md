@@ -35,7 +35,7 @@ if __name__ == '__main__':
     print(fibonacci(100))
 ```
 ### Результат.
-![image] (https://github.com/GanievaAnastasiia/Software_Engineering/blob/Тема_10/images10/1.png)
+![image](https://github.com/GanievaAnastasiia/Software_Engineering/blob/Тема_10/images10/1.png)
 
 ## Выводы
 
