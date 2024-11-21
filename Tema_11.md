@@ -27,7 +27,7 @@ for item in numbers:
 ```
 ### Результат.
 
-![image]()
+![image](https://github.com/GanievaAnastasiia/Software_Engineering/blob/Тема_11/images11/1.png)
 
 ## Выводы
 
